@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>权限管理组件</title>
+        <link rel="stylesheet" href="./static/userRoleSelect.css">
+
+    </head>
+    <body>
+        <button class="config_role">配置用户角色</button>
+        <script src="./static/userRoleSelect.js"></script>
+        <script>
+            window.onload = function(){
+                var userRoleSelect = new UserRoleSelect({
+                    show:false, //默认不显示
+                    className:"user-role-select",
+                    data: [
+                        {"value":1,"text":"站点管理员"},
+                        {"value":2,"text":"项目管理员"},
+                        {"value":3,"text":"项目经理"},
+                        {"value":4,"text":"高级开发工程师"},
+                        {"value":5,"text":"后台管理员"},
+                        {"value":6,"text":"超级用户"}],
+                    onSave:function(e){
+                        alert(this.getValues());
+                        this.hide();
+                    }
+                });
+                document.querySelector(".config_role").onclick = function(){
+                    userRoleSelect.show();
+                }
+            }
+            
+
+        </script>
+    </body>
+</html>
